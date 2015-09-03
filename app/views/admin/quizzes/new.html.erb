@@ -5,6 +5,7 @@
   <% end %>
 <%= form_for [:admin, @quiz], html: {class: 'form-horizontal'} do |f| %>
   <%= f.text_field :num_questions %>
+  <br>
   <br>(in the future: subject category, difficulty etc...)</br>
   <%= f.submit "Create" %>
 <% end %>
