@@ -11,7 +11,7 @@ class QuizFactory
   end
 
   def create(length, disposition)
-    save(fetch(length,disposition))
+   return length > 0 && save(fetch(length,disposition))
   end
 
   #private
@@ -43,7 +43,6 @@ class QuizFactory
         Slot.create(quiz: quiz, question: question)
       end
     end
-    quiz
   end
 
 

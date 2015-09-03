@@ -1,4 +1,5 @@
 class Attempt < ActiveRecord::Base
+  include Comparable
   belongs_to :quiz
   belongs_to :user
 
@@ -11,6 +12,10 @@ class Attempt < ActiveRecord::Base
   RESPONSE_ENDPOINT = NGROK_URL + "/attempts"
 
 
+  def <=>(a,b)
+    a.score <=> b.score
+  end
+
   def prepare(quiz, user)
     RestClient.post URL, 
       quiz.to_typeform(user.id).
@@ -18,7 +23,7 @@ class Attempt < ActiveRecord::Base
       :content_type => :json, :accept => :json, "X-API-TOKEN" => API
   end
 
-  def score!(answers)
+  def calc_score!(answers)
    correct_responses = self.quiz.questions.reject do |q|
      #correct_response = (q.send "option_#{q.correct_option}")
      #puts "REPORTED ANSWER #{answers[q.id.to_s]} CORRECT ONE #{correct_response}"

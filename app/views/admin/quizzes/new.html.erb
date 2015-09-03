@@ -1,5 +1,11 @@
-<b>Num questions in quiz</b>
+<div class="container" >
+  <h2>Create a new quiz !! </h2>
+  <% if flash[:alert] %>
+    <div class='has-error'> <%= flash[:alert] -%> </div>
+  <% end %>
 <%= form_for [:admin, @quiz], html: {class: 'form-horizontal'} do |f| %>
   <%= f.text_field :num_questions %>
+  <br>(in the future: subject category, difficulty etc...)</br>
   <%= f.submit "Create" %>
 <% end %>
+</div>

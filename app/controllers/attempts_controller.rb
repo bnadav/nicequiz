@@ -16,7 +16,7 @@ class AttemptsController < ApplicationController
   
   def create
     attempt = Attempt.create!(user: @user, quiz: @quiz)
-    attempt.score!(@answers)
+    attempt.calc_score!(@answers)
     redirect_to attempts_url
   end
 
