@@ -1,15 +1,17 @@
 class AttemptsController < ApplicationController
   skip_before_action :verify_authenticity_token, only: :create
+  skip_before_action :authenticate_user!, only: :create
   before_action :fetch_user, :fetch_quiz, :fetch_answers, only: :create
 
   def index
     @all_quizzes = Quiz.all
-    @user_previous_attempts = User.last.attempts
+    user = current_user
+    @user_previous_attempts = user.attempts
   end
 
   def new
     quiz = Quiz.find(params[:quiz_id])
-    typeform_response = Attempt.new.prepare(quiz, User.last)
+    typeform_response = Attempt.new.prepare(quiz, current_user)
     @link = JSON.parse(typeform_response)["_links"].find{|h| h["rel"] == "form_render"}["href"]
     render  layout: false
   end
