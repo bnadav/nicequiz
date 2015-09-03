@@ -3,11 +3,11 @@
   <caption><b>Current Examinations for <%= current_user.email -%></b></caption>
   <tr>
     <th>Number of questions</th>
-    <th>Previous Score</th>
+    <th>Best Score</th>
   </tr>
   <% @all_quizzes.each do |quiz| %>
   <tr> 
-    <td><%= link_to "quiz with #{quiz.num_questions} Questions", new_attempt_url(quiz_id: quiz.id)  -%>  </td>
+    <td><%= link_to "Quiz with #{quiz.num_questions} Questions", new_attempt_url(quiz_id: quiz.id)  -%>  </td>
     <td><%= score_for_quiz(quiz) %></td>
   </tr>
   <% end %>

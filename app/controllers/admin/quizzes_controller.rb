@@ -1,5 +1,7 @@
 class Admin::QuizzesController < ApplicationController
 
+  before_action :admin?
+
   def index
     @quizzes = Quiz.all
   end
@@ -14,5 +16,10 @@ class Admin::QuizzesController < ApplicationController
     else 
       redirect_to new_admin_quiz_url, alert: "Failed to create quiz"
     end
+  end
+
+  private
+  def admin?
+    redirect_to root_url, alert: "No Permission dude" unless current_user.admin?
   end
 end
