@@ -19,3 +19,8 @@
   margin: 0 5px;
 }
 
+.center_div {
+  margin: 0 auto;
+  width: 30%;
+}
+
