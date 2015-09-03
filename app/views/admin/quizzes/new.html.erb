@@ -1,0 +1,5 @@
+<b>Num questions in quiz</b>
+<%= form_for [:admin, @quiz], html: {class: 'form-horizontal'} do |f| %>
+  <%= f.text_field :num_questions %>
+  <%= f.submit "Create" %>
+<% end %>

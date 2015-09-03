@@ -1,0 +1,15 @@
+<h2>Quizzes list</h2>
+<table class='table'>
+  <tr>
+    <th>id</th>
+    <th>Number of questions</th>
+    <th>Average difficulty</th>
+  </tr>
+  <% @quizzes.each do |quiz| %>
+    <tr>
+      <td><%= quiz.id %></td>  
+      <td><%= quiz.num_questions %></td>  
+      <td><%= quiz.average_difficulty %></td>  
+    </tr>
+  <% end %>
+</table>

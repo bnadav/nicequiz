@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  num_questions: 1
+  category_id: 1
+  average_difficulty: 1.5
+
+two:
+  num_questions: 1
+  category_id: 1
+  average_difficulty: 1.5
