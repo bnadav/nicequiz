@@ -7,7 +7,7 @@ class Attempt < ActiveRecord::Base
   #URL = "https://api.typeform.io/v0.4/forms"
   URL = "https://api.typeform.io/latest/forms"
 
-  NGROK_URL = "http://ae154f3a.ngrok.io"
+  NGROK_URL = "http://c321ca50.ngrok.io"
  
   RESPONSE_ENDPOINT = NGROK_URL + "/attempts"
 
